@@ -15,13 +15,13 @@ class Veiculo_Details extends Model
 
     public function dynamic()
     {
-        return $this->belongsTo(Dynamic::class);
+        return $this->belongsTo(\App\Dynamic::class);
 
     }
 
     public function veiculo()
     {
-        return $this->belongsTo(Veiculo::class);
+        return $this->belongsTo(\App\Veiculo::class);
 
     }
 }

@@ -15,13 +15,13 @@ class Reparacao_Details extends Model
 
     public function reparacao()
     {
-        return $this->belongsTo(Reparacao::class);
+        return $this->belongsTo(\App\Reparacao::class);
 
     }
 
     public function dynamic()
     {
-        return $this->belongsTo(Dynamic::class);
+        return $this->belongsTo(\App\Dynamic::class);
 
     }
 }

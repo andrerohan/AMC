@@ -15,11 +15,11 @@ class Reparacao extends Model
 
     public function veiculo()
     {
-        return $this->belongsTo(Veiculo::class);
+        return $this->belongsTo(\App\Veiculo::class);
     }
 
     public function details()
     {
-        return $this->hasMany(Reparacao_Details::class);
+        return $this->hasMany(\App\Reparacao_Details::class);
     }
 }

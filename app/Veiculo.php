@@ -15,16 +15,16 @@ class Veiculo extends Model
 
     public function cliente()
     {
-        return $this->belongsTo(Cliente::class);
+        return $this->belongsTo(\App\Cliente::class);
     }
 
     public function reparacoes()
     {
-        return $this->hasMany(Reparacao::class);
+        return $this->hasMany(\App\Reparacao::class);
     }
 
     public function veiculos_details()
     {
-        return $this->hasMany(Veiculo_Details::class);
+        return $this->hasMany(\App\Veiculo_Details::class);
     }
 }

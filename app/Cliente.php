@@ -15,11 +15,11 @@ class Cliente extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(\App\User::class);
     }
 
     public function veiculos()
     {
-        return $this->hasMany(Veiculo::class);
+        return $this->hasMany(\App\Veiculo::class);
     }
 }

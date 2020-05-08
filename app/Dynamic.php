@@ -15,11 +15,11 @@ class Dynamic extends Model
 
     public function veiculos_details()
     {
-        return $this->hasMany(Veiculo_Details::class);
+        return $this->hasMany(\App\Veiculo_Details::class);
     }
 
     public function reparacoes_details()
     {
-        return $this->hasMany(Reparacao_Details::class);
+        return $this->hasMany(\App\Reparacao_Details::class);
     }
 }
