@@ -44,36 +44,37 @@
                     <input type="text" class="form-control pull-right" id="datepicker" name="data" value="{{Carbon\Carbon::parse($reparacao->data)->isoFormat('DD/MM/YYYY')}}">
                   </div>
                   <!-- /.input group -->
-                </div>                        
+                </div>
               </div>
 
-            
+
               <div class="form-group">
                 <label for="exampleInputEmail1">Km</label>
                 <input type="number" min="0.00"  step="0.01" class="form-control" id="km" name="km" value="{{$reparacao->km}}">
               </div>
-              
+
                   <div class="form-group">
                     <label for="exampleInputEmail1">Observações</label>
                     <input type="text" class="form-control" id="obs" name="obs" value="{{$reparacao->obs}}">
-                  </div>                          
-               
+                  </div>
 
-                
+
+
                   <div class="form-group">
                     <label>Veiculo</label>
                     <select class="js-example-basic form-control" name="veiculo_id">
-                      
+
+                    @if($reparacao->veiculo)
+                        <option selected value="{{$reparacao->veiculo->id}}">{{$reparacao->veiculo->matricula}}</option>
+                    @endif
+
+
                     @foreach($veiculos as $veiculo)
-                      @if($veiculo->id === $reparacao->veiculo->id)  
-                        <option selected value="{{$veiculo->id}}">{{$veiculo->matricula}}</option>
-                      @else
                         <option value="{{$veiculo->id}}">{{$veiculo->matricula}}</option>
-                      @endif
-                      @endforeach
+                    @endforeach
                   </select>
-                </div>                       
-               
+                </div>
+
               <!-- /.box-body -->
 
               <div class="box-footer">
