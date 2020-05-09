@@ -35,15 +35,12 @@
                     <div class="form-group">
                         <label>Cliente</label>
                         <select class="js-example-basic form-control" name="cliente_id">
-                        @if($veiculo->cliente)
                             @foreach($clientes as $cliente)
                                 @if($cliente->id === $veiculo->cliente->id)
                                     <option selected value="{{$cliente->id}}">{{$cliente->nome}}</option>
-                                @else
-                                    <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
                                 @endif
+                                    <option value="{{$cliente->id}}">{{$cliente->nome}}</option>
                             @endforeach
-                        @endif
                       </select>
                     </div>
 
