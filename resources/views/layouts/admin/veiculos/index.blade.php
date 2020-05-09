@@ -56,8 +56,15 @@
                                 <td>{{$v->modelo}}</td>
                                 <td>{{$v->ano}}</td>
                                 <td>{{$v->obs}}</td>
-                                <td><a href="/admin/clientes/{{$v->cliente_id}}">{{$v->cliente->nome}}</a></td>
-                            </tr>
+                                @if($v->cliente)
+                                    <td>
+                                        <a href="/admin/clientes/{{$v->cliente_id}}">{{$v->cliente->nome}}</a></td>
+                                    </td>
+                                @else
+                                    <td>S/ Cliente Associado</td>
+                                @endif
+
+                                </tr>
                             @endforeach
                         </table>
                     </div>
