@@ -18,13 +18,13 @@
     <section class="content container-fluid">
         <div class="row">
 
-            
+
                 <div class="col-md-12">
                     <div class="box box-info">
                         <div class="box-header with-border">
                             Lista de Reparações
                             <!-- Botões Criar / Editar / Apagar-->
-                                                    
+
                             <div class="pull-right box-tools ">
                             <form method="" class="form-group" action="{{route('reparacoes.create')}}">
                                     <button type="submit" class="btn btn-success btn-sm" data-widget="" data-toggle="tooltip" title="Criar">
@@ -32,10 +32,10 @@
                                     </button>&nbsp;
                                 </form>
                             </div>
-                
-                            
+
+
                         </div>
-                    
+
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table id="example1" class="table table-bordered">
@@ -45,22 +45,26 @@
                                     <th>Observações</th>
                                     <th>Veiculo</th>
                                 </thead>
-                                    
-                                @foreach($reparacoes as $r)                                  
+
+                                @foreach($reparacoes as $r)
                                 <tr>
                                     <td><a href="/admin/reparacoes/{{$r->id}}">{{$r->data}}</a></td>
                                     <td>{{$r->km}}</td>
                                     <td>{{$r->obs}}</td>
-                                    <td><a href="/admin/veiculos/{{$r->veiculo->id}}">{{$r->veiculo->matricula}}</a></td>                     
+                                    <td>
+                                        @if($r->veiculo)
+                                            <a href="/admin/veiculos/{{$r->veiculo->id}}">{{$r->veiculo->matricula}}</a>
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </table>
                         </div>
                         <!-- /.box-body -->
-                      
+
                     </div>
                 </div><!-- /.box -->
-            
+
         </div>
         <!-- /.col -->
     </section>

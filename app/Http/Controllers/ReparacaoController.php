@@ -20,7 +20,7 @@ class ReparacaoController extends Controller
      */
     public function index()
     {
-        $reparacoes = Reparacao::withTrashed()->orderby('data','desc')->get();
+        $reparacoes = Reparacao::orderby('data','desc')->get();
 
         return view('layouts.admin.reparacoes.index',compact('reparacoes'));
     }
