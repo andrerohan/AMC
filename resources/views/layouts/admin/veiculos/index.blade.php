@@ -61,7 +61,7 @@
                                         <a href="/admin/clientes/{{$v->cliente_id}}">{{$v->cliente->nome}}</a></td>
                                     </td>
                                 @else
-                                    <td>S/ Cliente Associado</td>
+                                    <td>Sem Cliente Associado</td>
                                 @endif
 
                                 </tr>

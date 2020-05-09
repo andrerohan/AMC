@@ -119,8 +119,9 @@ class VeiculoController extends Controller
      */
     public function edit(Veiculo $veiculo)
     {
-        $clientes = \App\Cliente::all();
-        $veiculo_details = \App\Veiculo_Details::where('veiculo_id',$veiculo->id)->get();
+
+        $clientes = \App\Cliente::withTrashed()->get();
+        $veiculo_details = \App\Veiculo_Details::withTrashed()->where('veiculo_id',$veiculo->id)->get();
         $dynamic = \App\Dynamic::where('model', 'Veiculo')->get();
 
         return view('layouts.admin.veiculos.edit', compact('clientes','veiculo','veiculo_details', 'dynamic'));

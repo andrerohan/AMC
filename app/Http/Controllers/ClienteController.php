@@ -43,7 +43,7 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {    
+    {
         /*{
             "_token": "UO1LxYrnQF5f98COAoVHUiqNM7HOK9lEjSXAfPJK",
             "nome": "Cátia Coelho",
@@ -72,10 +72,10 @@ class ClienteController extends Controller
                 'localidade'       => $request->localidade,
                 'contacto'       => $request->contacto,
                 'obs'       => $request->obs,
-               
+
             ]);
 
-            
+
         } catch (\Exception $e) {
             return $e;
         }
@@ -87,7 +87,7 @@ class ClienteController extends Controller
 
         return redirect('/admin/clientes');
 
-        
+
     }
 
     /**
@@ -97,7 +97,7 @@ class ClienteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Cliente $cliente)
-    {   
+    {
         return view('layouts.admin.clientes.show', compact('cliente'));
     }
 
@@ -123,24 +123,24 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-              
-        
+
+
         if($request->update_user){
 
-            /* 
+            /*
             {
                 "_method": "PUT",
                 "_token": "jdJpATvbmytJItTrQsw52ypYyznE2MYh3gtYJSTd",
                 "update_user": "1",
                 "users": ["3"]
             }
-            
+
             */
 
             $this->validate($request, [
 
                 'users' => 'required',
-                
+
             ]);
 
             $cliente->users()->sync($request->users);
@@ -152,18 +152,18 @@ class ClienteController extends Controller
 
             return redirect('/admin/clientes/'.$cliente->id);
 
-            
+
 
         }
 
         if($request->edit_cliente){
 
-            
+
             /* Exemplo de um request editar cliente (edit_cliente = 1)
-        
+
             "_method": "PUT",
             "_token": "jdJpATvbmytJItTrQsw52ypYyznE2MYh3gtYJSTd",
-            "edit_cliente": "1",   
+            "edit_cliente": "1",
             "nome": "Keebler-Osinski",
             "contribuinte": "9958452853",
             "morada": "72584 Eleonore FD 67336-2939",
@@ -171,15 +171,15 @@ class ClienteController extends Controller
             "localidade": "Taiwan",
             "contacto": "+1-838-358-5227",
             "obs": "Blanditiis numquam deserunt architecto debitis."
-            
+
             */
 
             $this->validate($request, [
 
                 'nome' => 'required',
-                
+
             ]);
-            
+
             $cliente->update([
                 'nome' => $request->nome,
                 'contribuinte' => $request->contribuinte,
@@ -188,7 +188,7 @@ class ClienteController extends Controller
                 'localidade' => $request->localidade,
                 'contacto' => $request->contacto,
                 'obs' => $request->obs,
-                
+
             ]);
 
             session()->flash(
@@ -200,9 +200,9 @@ class ClienteController extends Controller
 
         }
 
-        
 
-        
+
+
     }
 
     /**

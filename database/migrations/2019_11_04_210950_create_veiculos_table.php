@@ -20,7 +20,7 @@ class CreateVeiculosTable extends Migration
             $table->string('modelo')->nullable();
             $table->string('ano')->nullable();
             $table->string('obs')->nullable();
-            $table->integer('cliente_id');
+            $table->integer('cliente_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
