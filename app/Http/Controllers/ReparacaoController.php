@@ -20,7 +20,7 @@ class ReparacaoController extends Controller
      */
     public function index()
     {
-        $reparacoes = Reparacao::orderby('data','desc')->get();
+        $reparacoes = Reparacao::withTrashed()->orderby('data','desc')->get();
 
         return view('layouts.admin.reparacoes.index',compact('reparacoes'));
     }
@@ -45,7 +45,7 @@ class ReparacaoController extends Controller
      */
     public function store(Request $request)
     {
-       
+
         /*{
             "_method": "PUT",
             "_token": "fl3FZAYjseZpvFSVZTooZbnFAOVcuTlia69DWsY8",
@@ -56,7 +56,7 @@ class ReparacaoController extends Controller
 
         // Transforma String data em Datetime data
         //Carbon::createFromFormat('d/m/Y', $request->data)->toDateTimeString();
-        
+
         //return $request;
 
         $this->validate($request, [
@@ -75,11 +75,11 @@ class ReparacaoController extends Controller
             $reparacao = Reparacao::create([
                 'data'       => Carbon::createFromFormat('d-m-Y', $request->data),
                 'obs'       => $request->obs,
-                'veiculo_id'       => $request->veiculo_id,  
-                'km'       => $request->km,              
+                'veiculo_id'       => $request->veiculo_id,
+                'km'       => $request->km,
             ]);
 
-            
+
         } catch (\Exception $e) {
             return $e;
         }
@@ -136,9 +136,9 @@ class ReparacaoController extends Controller
             "obs": "04-02-XB",
             "veiculo_id": "3"
         }*/
-        
+
         $reparacao = Reparacao::find($request->reparacao_id);
-        
+
         $this->validate($request, [
             'data' => 'required',
             'veiculo_id' => 'required',
@@ -153,12 +153,12 @@ class ReparacaoController extends Controller
         $reparacao->update([
             'data'       => Carbon::createFromFormat('d-m-Y', $request->data),
             'obs'       => $request->obs,
-            'veiculo_id'       => $request->veiculo_id,   
-            'km'       => $request->km,            
+            'veiculo_id'       => $request->veiculo_id,
+            'km'       => $request->km,
         ]);
 
-            
-    
+
+
 
         session()->flash(
             'success',
