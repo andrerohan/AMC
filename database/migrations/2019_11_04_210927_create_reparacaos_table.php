@@ -17,7 +17,7 @@ class CreateReparacaosTable extends Migration
             $table->bigIncrements('id');
             $table->date('data');
             $table->string('obs')->nullable();
-            $table->integer('veiculo_id');
+            $table->integer('veiculo_id')->nullable();
             $table->double('km')->nullable();
             $table->timestamps();
             $table->softDeletes();
