@@ -66,6 +66,8 @@
 
                     @if($reparacao->veiculo)
                         <option selected value="{{$reparacao->veiculo->id}}">{{$reparacao->veiculo->matricula}}</option>
+                    @else
+                        <option selected value="{{null}}">Sem Matricula Associada</option>
                     @endif
 
 
