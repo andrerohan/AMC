@@ -20,9 +20,9 @@
     <!-- Main content -->
     <section class="content container-fluid">
         <div class="row justify-content-center">
-            
+
             <!-- Veiculo -->
-            
+
             <div class="col-md-6">
                 <div class="box box-success table-responsive">
                     <thead><div class="box-header with-border text-center">
@@ -30,7 +30,7 @@
                         <div class="pull-right box-tools">
                             <a href="/admin/veiculos/{{$veiculo->id}}/edit"><button type="button" class="btn btn-info btn-sm" data-widget="" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></button></a>&nbsp;
                             <a href="/admin/veiculos/{{$veiculo->id}}"><button type="Submit" form="delete" class="btn btn-danger btn-sm" data-widget="" data-toggle="tooltip" title="Apagar"><i class="fa fa-trash-o"></i></button></a>
-                        
+
                         <form method="POST" id="delete" name="delete" action="/admin/veiculos/{{$veiculo->id}}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
@@ -41,11 +41,11 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table class="table table-bordered">
-                           
+
                             <tr>
                                 <th>Matricula</th>
-                                
-                                
+
+
                                 <td>{{$veiculo->matricula}}</td>
                             </tr>
                                 <th>Marca</th>
@@ -58,17 +58,23 @@
                             <tr>
 
                             </tr>
-                                <th>Ano</th> 
-                                <td>{{$veiculo->ano}}</td>                            
+                                <th>Ano</th>
+                                <td>{{$veiculo->ano}}</td>
                             </tr>
                             </tr>
-                                <th>Observações</th> 
-                                <td>{{$veiculo->obs}}</td>                            
+                                <th>Observações</th>
+                                <td>{{$veiculo->obs}}</td>
                             </tr>
                             </tr>
-                                <th>Cliente</th> 
-                                <td><a href="/admin/clientes/{{$veiculo->cliente->id}}">{{$veiculo->cliente->nome}}</a></td>                            
-                            </tr>                            
+                                <th>Cliente</th>
+                                @if($veiculo->cliente)
+                                    <td>
+                                        <a href="/admin/clientes/{{$veiculo->cliente->id}}">{{$veiculo->cliente->nome}}</a>
+                                    </td>
+                                @else
+                                    <td>S/ Cliente associado</td>
+                                @endif
+                            </tr>
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -83,7 +89,7 @@
                         <div class="pull-right box-tools">
                             <a href="/admin/veiculos/{{$veiculo->id}}/edit"><button type="button" class="btn btn-info btn-sm" data-widget="" data-toggle="tooltip" title="Editar"><i class="fa fa-edit"></i></button></a>&nbsp;
                             <a href="/admin/veiculos/{{$veiculo->id}}"><button type="Submit" form="delete" class="btn btn-danger btn-sm" data-widget="" data-toggle="tooltip" title="Apagar"><i class="fa fa-trash-o"></i></button></a>
-                        
+
                         <form method="POST" id="delete" name="delete" action="/admin/veiculos/{{$veiculo->id}}">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
@@ -98,8 +104,8 @@
                                 @foreach ($veiculo->veiculos_details()->get() as $veiculo_details )
                                     @if($veiculo_details->dynamic->model == "Veiculo")
                                         </tr>
-                                            <th>{{$veiculo_details->dynamic->nome}}</th> 
-                                            <td>{{$veiculo_details->nome}}</td>                            
+                                            <th>{{$veiculo_details->dynamic->nome}}</th>
+                                            <td>{{$veiculo_details->nome}}</td>
                                         </tr>
                                     @endif
                                 @endforeach
@@ -109,17 +115,17 @@
                     <!-- /.box-body -->
                 </div>
             </div>
-            
+
             <!-- Reparações -->
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
                         <h3 class="box-title">Reparações</h3>
                         <!-- Botões Criar / Editar / Apagar-->
-                                                   
+
                         <div class="pull-right box-tools ">
                             <form method="GET" form-group" action="{{ route('reparacoes.create') }}">
-                                <input type="hidden" name="veiculo_id" id="veiculo_id" value="{{$veiculo->id}}">      
+                                <input type="hidden" name="veiculo_id" id="veiculo_id" value="{{$veiculo->id}}">
                                 <button type="submit" class="btn btn-success btn-sm" title="Criar"><i class="fa fa-plus"></i></button>&nbsp;
                             </form>
                         </div>
