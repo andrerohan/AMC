@@ -56,7 +56,7 @@
                                 <td>{{$v->modelo}}</td>
                                 <td>{{$v->ano}}</td>
                                 <td>{{$v->obs}}</td>
-                                <td><a href="/admin/clientes/{{$v->cliente_id}}">{{$v->cliente->nome}}</a></td>
+                                <td><a href="/admin/clientes/{{$v->cliente_id}}">{{$v->cliente}}</a></td>
                             </tr>
                             @endforeach
                         </table>
