@@ -30,8 +30,8 @@
             <!-- form start -->
               <form method="POST" class="form-group" action="{{ route('dynamics.store')}}">
                 @csrf
-              
-              <div class="box-body">  
+
+              <div class="box-body">
                 <div class="form-group">
                   <label>Selecionar Modelo</label>
                   <select class="form-control" id="model" name="model">
@@ -39,11 +39,11 @@
                     <option>{{$dynamic_model}}</option>
                     @endif
                     <option>Veiculo</option>
-                    <option>Reparação</option>
+                    <option>Reparacao</option>
                   </select>
                 </div>
               </div>
-              <div class="box-body">  
+              <div class="box-body">
                 <div class="form-group">
                   <label>Nome</label>
                   <input type="text" class="form-control" id="nome" name="nome" placeholder="">
@@ -54,7 +54,7 @@
               <div class="box-footer">
                 <button type="submit" class="btn btn-success">Guardar</button>
               </div>
-            
+
             </form>
           </div>
         </div>

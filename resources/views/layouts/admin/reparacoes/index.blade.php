@@ -20,7 +20,7 @@
 
 
                 <div class="col-md-12">
-                    <div class="box box-info">
+                    <div class="box box-info table-responsive">
                         <div class="box-header with-border">
                             Lista de Reparações
                             <!-- Botões Criar / Editar / Apagar-->
